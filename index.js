@@ -3,7 +3,7 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const generateMarkdown = require("./utils/generateMarkdown");
 // TODO: Create an array of questions for user input
-const questions = [
+const promptUser = [
     {
         type: "input",
         name: "title",
@@ -59,7 +59,7 @@ const questions = [
 // TODO: Create a function to write README file
 const writeFile = fileContent => {
     return new Promise((resolve, reject) => {
-        fs.writeFile('./dist/README.md', fileContent, err => {
+        fs.writeFile('./dist/README.md', generateMarkdown, err => {
             // if there's an error, reject the Promise and send the error to the Promise's '.catch()' method
             if (err) {
                 reject(err);
@@ -76,9 +76,29 @@ const writeFile = fileContent => {
     });
 };
 
+/* promptUser()
+  .then(promptProject)
+  .then(portfolioData => {
+    return generatePage(portfolioData);
+  })
+  .then(pageHTML => {
+    return writeFile(pageHTML);
+  })
+  .then(writeFileResponse => {
+    console.log(writeFileResponse);
+    return copyFile();
+  })
+  .then(copyFileResponse => {
+    console.log(copyFileResponse);
+  })
+  .catch(err => {
+    console.log(err);
+  });
+*/
+
 // TODO: Create a function to initialize app
 function init() {
-    inquirer.prompt(questions).then((answers) => {
+    inquirer.prompt(promptUser).then((answers) => {
         console.log(answers)
         // var markdown = generateMarkdown(answers) as alternative
     })

@@ -35,6 +35,9 @@ function renderLicenseSection(license) {
     }
 }
 
+// TODO: Create a function to add contributors if multiple before moving onto next prompt
+
+
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `
