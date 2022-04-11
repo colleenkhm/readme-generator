@@ -5,7 +5,7 @@
 module.exports = templateData => {
     console.log(templateData);
 
-    const { title, description, installation, usage, license, tests, github, email, contact } = templateData
+    const { title, description, installation, usage, license, contributing, tests, github, email, contact } = templateData
 
     return `
     # Title 
